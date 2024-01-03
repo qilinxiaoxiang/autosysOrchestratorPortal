@@ -1,0 +1,11 @@
+<div class="body">
+  <p-dropdown (onChange)="envChange()" [(ngModel)]="selectedEnv" [options]="envs" [showClear]="true"
+              optionLabel="name" placeholder="Select an environment"></p-dropdown>
+</div>
+<div class="text">
+  <textarea [(ngModel)]="content" cols="30" pInputTextarea rows="30"></textarea>
+</div>
+<br>
+<div class="button">
+  <p-button (click)="saveContent()" class='save'>Save</p-button>
+</div>

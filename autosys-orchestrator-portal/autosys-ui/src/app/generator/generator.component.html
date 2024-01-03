@@ -1,0 +1,23 @@
+<div class="body">
+  <p-fieldset legend="Envs">
+    <div>
+      <p-checkbox *ngFor="let env of envs" [(ngModel)]="selectedEnvs" [label]="env.name" [value]="env"
+                  name="group"></p-checkbox>
+    </div>
+  </p-fieldset>
+
+  <p-fieldset legend="Generator">
+    <p-inputSwitch [(ngModel)]="generateDeletion"></p-inputSwitch>
+    Generate deletion
+    <p-button (click)="generate()">Generate</p-button>
+    <div class="result">
+      <p-button (click)="showDialog(jilScript.server, jilScript.content)" *ngFor="let jilScript of jilScripts"
+                icon="pi pi-external-link" label="{{jilScript.server}}.jil"></p-button>
+    </div>
+    <p-dialog [(visible)]="visible" [style]="{width: '50vw'}" header="{{dialogHeader}}">
+      <!-- display jilScript.content in raw including line separators -->
+      <pre>{{ dialogContent }}</pre>
+    </p-dialog>
+
+  </p-fieldset>
+</div>
